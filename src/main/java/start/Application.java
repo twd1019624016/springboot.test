@@ -18,6 +18,8 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import start.util.ApplicationContextUtil;
+
 
 
 @RestController
@@ -39,6 +41,7 @@ public class Application {
 	public static void main(String[] args) {
 		
 		ConfigurableApplicationContext application = SpringApplication.run(Application.class, args);
+		ApplicationContextUtil.setApplicationContext(application);
 		application.getId();
 		
 	}
