@@ -1,0 +1,50 @@
+server:
+     contextPath: /springboot
+     port: 8088
+name: 哈
+
+
+
+# freemarker 配置
+spring:
+     freemarker:
+            allowRequestOverride: false
+            allowSessionOverride: false
+            cache: true
+            checkTemplateLocation: true
+            contentType: text/html
+            exposeRequestAttributes: false
+            exposeSessionAttributes: false
+            exposeSpringMacroHelpers: false
+            suffix: .ftl
+            templateEncoding: UTF-8
+            templateLoaderPath: classpath:/templates/  #表示所有的模板文件都放在该目录下
+            spring.freemarker.settings: 
+                locale: zh_CN
+                date_format: yyyy-MM-dd
+                time_format: HH:mm:ss
+                datetime_format: yyyy-MM-dd HH:mm:ss
+                
+ # elasticsearch 配置               
+spring:
+   data:
+        elasticsearch: 
+            cluster-name: #默认为elasticsearch
+            cluster-nodes: #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+            properties:
+                path:
+                  logs: ./elasticsearch/log #elasticsearch日志存储目录
+                  data: ./elasticsearch/data #elasticsearch数据存储目录
+
+  
+  
+   # mybatis 配置                      
+mybatis: 
+   mapperLocations: classpath:/*.xml
+   typeAliasesPackage: tk.mapper.model  
+   config: #mybatis-config.xml配置文件的路径
+   typeHandlersPackage: #扫描typeHandlers的包
+   checkConfigLocation: #检查配置文件是否存在
+   executorType: #设置执行模式（SIMPLE, REUSE, BATCH），默认为SIMPLE
+  
+                 
